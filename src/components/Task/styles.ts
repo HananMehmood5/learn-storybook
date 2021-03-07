@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { TASK_STATES } from "../../types"
 
 export const ListItem = styled.div`
     font-size: 14px;
@@ -44,7 +45,7 @@ export const CheckboxContainer = styled.div<{ state?: string }>`
     }
 
     ${({ state }) =>
-      state === 'TASK_ARCHIVED' &&
+      state === TASK_STATES.TASK_ARCHIVED &&
       css`
         svg {
         font-size: 16px;
@@ -65,7 +66,7 @@ export const ItemTitle = styled.p<{ status?: string }>`
   margin: 0 0 0 0.75rem;
 
   ${({ status }) =>
-      status === 'TASK_ARCHIVED' &&
+      status === TASK_STATES.TASK_ARCHIVED &&
       css`
         color: #aaa;
       `}
@@ -91,7 +92,7 @@ export const ActionContainer = styled.div<{ state?: string }>`
     }
 
     ${({ state }) =>
-        state === 'TASK_PINNED' &&
+        state === TASK_STATES.TASK_PINNED &&
         css`
         svg {
             color: #2cc5d2;
