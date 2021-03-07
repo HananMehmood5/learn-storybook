@@ -12,7 +12,13 @@ type Props = {
   onPinTask: (id: string) => void,
 };
 
-const Task: React.FC<Props> = ({ id, title, state = "", onArchiveTask, onPinTask }) => {
+const Task: React.FC<Props> = ({
+  id,
+  title,
+  state = TASK_STATES.DEFAULT,
+  onArchiveTask,
+  onPinTask
+}) => {
   return (
     <S.ListItem>
       <S.CheckboxContainer state={state}>
@@ -30,8 +36,8 @@ const Task: React.FC<Props> = ({ id, title, state = "", onArchiveTask, onPinTask
       </S.CheckboxContainer>
       <S.ItemTitle status={state}>{title}</S.ItemTitle>
       {state !== TASK_STATES.TASK_ARCHIVED && (
-        <S.ActionContainer state={state} onClick={event => event.stopPropagation()}>
-          <FontAwesomeIcon icon={faStar} onClick={() => onPinTask(id)} />  
+        <S.ActionContainer state={state} onClick={() => onPinTask(id)}>
+          <FontAwesomeIcon icon={faStar} />  
         </S.ActionContainer>
       )}
     </S.ListItem>
