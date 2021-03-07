@@ -1,53 +1,36 @@
-import { Meta, Story, Props, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { select, text, withKnobs } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+import { TASK_STATES } from "../../types"
 
 import Task from '.';
 
-# Task
+<Meta title="components/Task" component={Task} decorators={[withKnobs]}/>
 
-<Meta title="components/Task" component={Task} />
-
-## Props for Task
+# Props for Task
 <Props of={Task} />
 
-export const Template = (args) => <Task {...args } />
+# Stories for Task
 
-Let's define a story for our `Task` component:
+Let's define a story for our `Task` component with `Preview`:
 
+## Default with "Preview" and with "withKnobs"
 
-We can drop it in a `Canvas` to get a code snippet:
-
-<Canvas>
+<Preview>
     <Story name="default">
-    <Task 
-    id= "1"
-    title= "Test Task 2"
-    state= ""
-    onArchiveTask={() => {}}
-    onPinTask={() => {}}
-    />
+        <Task 
+            id= "1"
+            title= {text("Title", "Test Task 2")}
+            state= {select(
+                "State",
+                [
+                    TASK_STATES.DEFAULT,
+                    TASK_STATES.TASK_ARCHIVED,
+                    TASK_STATES.TASK_PINNED
+                ]
+            )}
+            onArchiveTask={action('archive Task')}
+            onPinTask={action('Pin Task')}
+        />
     </Story>
-</Canvas>
-
-<Canvas>
-    <Story name="ARCHIVED">
-    <Task 
-    id= "1"
-    title= "Test Task 2"
-    state= "TASK_ARCHIVED"
-    onArchiveTask={() => {}}
-    onPinTask={() => {}}
-    />
-    </Story>
-</Canvas>
-
-<Canvas>
-    <Story name="PINNED">
-    <Task 
-    id= "1"
-    title= "Test Task 2"
-    state= "TASK_PINNED"
-    onArchiveTask={() => {}}
-    onPinTask={() => {}}
-    />
-    </Story>
-</Canvas>
+</Preview>
