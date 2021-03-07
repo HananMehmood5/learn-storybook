@@ -1,0 +1,53 @@
+import { Meta, Story, Props, Canvas } from '@storybook/addon-docs/blocks';
+
+import Task from '.';
+
+# Task
+
+<Meta title="components/Task" component={Task} />
+
+## Props for Task
+<Props of={Task} />
+
+export const Template = (args) => <Task {...args } />
+
+Let's define a story for our `Task` component:
+
+
+We can drop it in a `Canvas` to get a code snippet:
+
+<Canvas>
+    <Story name="default">
+    <Task 
+    id= "1"
+    title= "Test Task 2"
+    state= ""
+    onArchiveTask={() => {}}
+    onPinTask={() => {}}
+    />
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="ARCHIVED">
+    <Task 
+    id= "1"
+    title= "Test Task 2"
+    state= "TASK_ARCHIVED"
+    onArchiveTask={() => {}}
+    onPinTask={() => {}}
+    />
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="PINNED">
+    <Task 
+    id= "1"
+    title= "Test Task 2"
+    state= "TASK_PINNED"
+    onArchiveTask={() => {}}
+    onPinTask={() => {}}
+    />
+    </Story>
+</Canvas>
