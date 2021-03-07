@@ -13,11 +13,11 @@ export const ListItem = styled.div`
     position: relative;
     flex-direction: row;
     :hover {
-    background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
+        background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
     }
 `;
 
-export const CheckboxContainer = styled.div<{ state?: string }>`
+export const CheckboxContainer = styled.div<{ state?: TASK_STATES }>`
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -25,7 +25,6 @@ export const CheckboxContainer = styled.div<{ state?: string }>`
     margin: 0;
     height: 3rem;
     width: 2.25rem;
-    
 
     input[type="checkbox"] {
         font-size: 1em;
@@ -48,18 +47,18 @@ export const CheckboxContainer = styled.div<{ state?: string }>`
       state === TASK_STATES.TASK_ARCHIVED &&
       css`
         svg {
-        font-size: 16px;
-        line-height: 24px;
-        box-shadow: none;
-        color: #2cc5d2;
-        margin-top: -1px;
-        line-height: 1;
-    }
-      `}
+            font-size: 16px;
+            line-height: 24px;
+            box-shadow: none;
+            color: #2cc5d2;
+            margin-top: -1px;
+            line-height: 1;
+        }
+    `}
 `;
 
 
-export const ItemTitle = styled.p<{ status?: string }>`
+export const ItemTitle = styled.p<{ status?: TASK_STATES }>`
   white-space: nowrap;
   background: transparent;
   width: 100%;
@@ -72,8 +71,7 @@ export const ItemTitle = styled.p<{ status?: string }>`
       `}
 `
 
-export const ActionContainer = styled.div<{ state?: string }>`
-
+export const ActionContainer = styled.div<{ state?: TASK_STATES }>`
     transition: all 200ms ease-in;
     padding-right: 20px;
 
