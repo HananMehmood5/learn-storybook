@@ -37,14 +37,27 @@ const TasksReducer = (state: TasksStateProps = initialState, action: TasksAction
       return {
         ...state,
         tasks: state.tasks.map(
-            task => (task.id === action.id ? { ...task, state: TASK_STATES.TASK_ARCHIVED } : task)
+          task => (task.id === action.id ?
+            {
+              ...task,
+              state: task.state === TASK_STATES.TASK_ARCHIVED ?
+                TASK_STATES.DEFAULT :
+                TASK_STATES.TASK_ARCHIVED
+            } : task
+          )
         ),
       };
     case TasksActionKeys.onPinTask:
       return {
         ...state,
         tasks: state.tasks.map(
-            task => (task.id === action.id ? { ...task, state: TASK_STATES.TASK_PINNED } : task)
+          task => (task.id === action.id ?
+            {
+              ...task,
+              state: task.state === TASK_STATES.TASK_PINNED ?
+                TASK_STATES.DEFAULT :
+                TASK_STATES.TASK_PINNED
+            } : task)
         ),
       };
     
@@ -64,13 +77,7 @@ type TasksContextType = {
   actions: TasksDispatchProps;
 }
 
-const TasksContext = createContext<TasksContextType>({
-    state: initialState,
-    actions: {
-        onPinTask: (id: string) => { },
-        onArchiveTask: (id: string) => { },
-    },
-});
+const TasksContext = createContext<TasksContextType | null>(null);
 
 
 type TasksContextProviderProps = {
