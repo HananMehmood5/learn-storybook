@@ -32,6 +32,7 @@ type TasksActionTypes = {
 
 /****  Reducer  ****/
 const TasksReducer = (state: TasksStateProps = initialState, action: TasksActionTypes): TasksStateProps => {
+  console.log("xx reducer", action);
   switch (action.type) {
     case TasksActionKeys.onArchiveTask:
       return {
@@ -77,7 +78,13 @@ type TasksContextType = {
   actions: TasksDispatchProps;
 }
 
-const TasksContext = createContext<TasksContextType | null>(null);
+const TasksContext = createContext<TasksContextType>({
+    state: initialState,
+    actions: {
+        onPinTask: () => { },
+        onArchiveTask: () => { },
+    },
+});
 
 
 type TasksContextProviderProps = {
