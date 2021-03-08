@@ -85,12 +85,6 @@ export const ActionContainer = styled.div<{ state?: TASK_STATES }>`
         color: #eee;
     }
 
-    :hover {
-        svg {
-            color: #2cc5d2;
-        }
-    }
-
     ${({ state }) =>
         state === TASK_STATES.TASK_PINNED &&
         css`
