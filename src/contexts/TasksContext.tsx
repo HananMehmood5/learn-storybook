@@ -1,19 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { TASK_STATES, TaskType } from "../types";
 
-
-/****  Action Keys  ****/
-export enum TasksActionKeys {
-  onPinTask = "onPinTask",
-  onArchiveTask = "onArchiveTask",
-}
-
-/****  Action Types  ****/
-type TasksActionTypes = {
-  type: TasksActionKeys.onArchiveTask | TasksActionKeys.onPinTask;
-  id: string;
-}
-
 /****  State and Dispatch Props  ****/
 type TasksStateProps = {
     loading: boolean;
@@ -29,6 +16,19 @@ const defaultTasks = [
 ];
 
 const initialState: TasksStateProps = { loading: false, tasks: defaultTasks };
+
+
+/****  Action Keys  ****/
+export enum TasksActionKeys {
+  onPinTask = "onPinTask",
+  onArchiveTask = "onArchiveTask",
+}
+
+/****  Action Types  ****/
+type TasksActionTypes = {
+  type: TasksActionKeys.onArchiveTask | TasksActionKeys.onPinTask;
+  id: string;
+}
 
 /****  Reducer  ****/
 const TasksReducer = (state: TasksStateProps = initialState, action: TasksActionTypes): TasksStateProps => {
