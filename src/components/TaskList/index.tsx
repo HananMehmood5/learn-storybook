@@ -1,20 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { TASK_STATES } from "../../types"
+import { TaskType } from "../../types"
 import Task from '../Task';
 import * as S from "./styles";
 
 
 type Props = {
-  loading: boolean,
-    tasks: {
-        id: string,
-        title: string,
-        state: TASK_STATES,
-    }[],
-  onPinTask: (id: string) => void,
-  onArchiveTask: (id: string) => void,
+    loading: boolean,
+    tasks: TaskType[],
+    onPinTask: (id: string) => void,
+    onArchiveTask: (id: string) => void,
 }
 
 export const TaskList: React.FC<Props> = ({
