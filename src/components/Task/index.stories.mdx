@@ -12,22 +12,79 @@ import Task from '.';
 
 # Stories for Task
 
-Let's define a story for our `Task` component with `Preview`:
-
-## Default with "Preview" and with "withKnobs"
+Let's define a story for our `Task`:
 
 <Preview>
     <Story name="default">
         <Task 
             id= "1"
+            title= "Test Task 2"
+            state= {TASK_STATES.DEFAULT}
+            onArchiveTask={() => {}}
+            onPinTask={() => {}}
+        />
+    </Story>
+</Preview>
+
+## Default with "Preview" and with "withKnobs"
+
+<Preview>
+    <Story name="default With Knobs">
+        <Task 
+            id= "1"
             title= {text("Title", "Test Task 2")}
             state= {select(
                 "State",
-                [
-                    TASK_STATES.DEFAULT,
-                    TASK_STATES.TASK_ARCHIVED,
-                    TASK_STATES.TASK_PINNED
-                ]
+                {
+                    TASK_ARCHIVED: TASK_STATES.TASK_ARCHIVED,
+                    TASK_PINNED: TASK_STATES.TASK_PINNED,
+                    DEFAULT : TASK_STATES.DEFAULT,
+                },
+                TASK_STATES.DEFAULT,
+            )}
+            onArchiveTask={action('archive Task')}
+            onPinTask={action('Pin Task')}
+        />
+    </Story>
+</Preview>
+
+## Archived:
+
+<Preview>
+    <Story name="Archived">
+        <Task 
+            id= "1"
+            title= {text("Title", "Test Task 2")}
+            state= {select(
+                "State",
+                {
+                    TASK_ARCHIVED: TASK_STATES.TASK_ARCHIVED,
+                    TASK_PINNED: TASK_STATES.TASK_PINNED,
+                    DEFAULT :TASK_STATES.DEFAULT,
+                },
+                TASK_STATES.TASK_ARCHIVED,                
+            )}
+            onArchiveTask={action('archive Task')}
+            onPinTask={action('Pin Task')}
+        />
+    </Story>
+</Preview>
+
+## Pinned:
+
+<Preview>
+    <Story name="Pinned">
+        <Task 
+            id= "1"
+            title= {text("Title", "Test Task 2")}
+            state= {select(
+                "State",
+                {
+                    TASK_ARCHIVED: TASK_STATES.TASK_ARCHIVED,
+                    TASK_PINNED: TASK_STATES.TASK_PINNED,
+                    DEFAULT :TASK_STATES.DEFAULT,
+                },
+                TASK_STATES.TASK_PINNED,                
             )}
             onArchiveTask={action('archive Task')}
             onPinTask={action('Pin Task')}
