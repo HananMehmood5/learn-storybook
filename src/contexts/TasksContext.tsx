@@ -30,6 +30,7 @@ type TasksActionTypes = {
   id: string;
 }
 
+
 /****  Reducer  ****/
 const TasksReducer = (state: TasksStateProps = initialState, action: TasksActionTypes): TasksStateProps => {
   console.log("xx reducer", action);
