@@ -29,7 +29,7 @@ const Task: React.FC<Props> = ({
           name="checked"
         />
         {state === TASK_STATES.TASK_ARCHIVED ? 
-          <FontAwesomeIcon icon={faCheck} onClick={() => onPinTask(id)} />
+          <FontAwesomeIcon icon={faCheck} onClick={() => onArchiveTask(id)} />
           :
           <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
         }
