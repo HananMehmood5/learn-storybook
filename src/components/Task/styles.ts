@@ -12,6 +12,8 @@ export const ListItem = styled.div`
     align-items: center;
     position: relative;
     flex-direction: row;
+    border-bottom: 1px solid #f0f9fb;
+
     :hover {
         background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
     }
