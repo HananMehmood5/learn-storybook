@@ -31,6 +31,7 @@ export const CheckboxContainer = styled.div<{ state?: TASK_STATES }>`
     input[type="checkbox"] {
         font-size: 1em;
         visibility: hidden;
+        margin-left: 1.5rem;
     }
 
     span {
