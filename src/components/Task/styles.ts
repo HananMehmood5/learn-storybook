@@ -56,6 +56,7 @@ export const CheckboxContainer = styled.div<{ state?: TASK_STATES }>`
             color: #2cc5d2;
             margin-top: -1px;
             line-height: 1;
+            margin-left: -1.5rem;
         }
     `}
 `;
