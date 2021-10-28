@@ -1,0 +1,24 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { boolean, withKnobs } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+import { TasksContextProvider } from '../../contexts/TasksContext';
+import { Tasks, PinnedTasks  } from "../../mocks/task"
+
+import TaskList from '.';
+
+<Meta title="containers/TaskList" component={TaskList} decorators={[withKnobs]}/>
+
+# Props for Task
+<Props of={TaskList} />
+
+# Stories for TaskList
+
+Let's define a story for our `TaskList`:
+
+<Preview>
+    <Story name="default">
+        <TasksContextProvider>
+            <TaskList />
+        </TasksContextProvider>
+    </Story>
+</Preview>

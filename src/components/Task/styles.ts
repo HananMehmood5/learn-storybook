@@ -31,6 +31,7 @@ export const CheckboxContainer = styled.div<{ state?: TASK_STATES }>`
     input[type="checkbox"] {
         font-size: 1em;
         visibility: hidden;
+        margin-left: 1.5rem;
     }
 
     span {
@@ -55,6 +56,7 @@ export const CheckboxContainer = styled.div<{ state?: TASK_STATES }>`
             color: #2cc5d2;
             margin-top: -1px;
             line-height: 1;
+            margin-left: -1.5rem;
         }
     `}
 `;
@@ -83,12 +85,6 @@ export const ActionContainer = styled.div<{ state?: TASK_STATES }>`
         font-size: 16px;
         line-height: 1.5;
         color: #eee;
-    }
-
-    :hover {
-        svg {
-            color: #2cc5d2;
-        }
     }
 
     ${({ state }) =>
